@@ -41,9 +41,16 @@ public class WechatController {
         //1 配置
         String url = projectUrlConfig.getWechatMpAuthorize() + "/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_USER_INFO, URLEncoder.encode(returnUrl));
-        log.info("[微信网页授权获取 code],resule={}", redirectUrl);
+         log.info("[微信网页授权获取 code],resule={}", redirectUrl);
 
         return "redirect:" + redirectUrl;
+    }
+
+    @GetMapping("/index")
+    public String index() {
+         log.info("[index code],resule={}");
+
+        return "index";
     }
 
     @GetMapping("/userInfo")

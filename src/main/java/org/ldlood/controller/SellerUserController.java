@@ -60,7 +60,6 @@ public class SellerUserController {
         return new ModelAndView("redirect:" + projectUrlConfig.getSell() + "/seller/order/list");
     }
 
-
     @GetMapping("/logout")
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response, Map<String, Object> map) {
         Cookie cookie = CookieUtil.get(request, CookieConstant.TOKEN);

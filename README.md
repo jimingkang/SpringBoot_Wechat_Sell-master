@@ -138,3 +138,13 @@ npm run build
 
 
 # 老铁 如果项目对你有任何一点帮助的话 请给个Star 感谢 
+
+#jimmy add
+ 1)register a account in 
+ https://www.ngrok.cc/user
+ 2) download client
+  https://www.ngrok.cc (see doc:https://www.ngrok.cc/user)
+ 3) start 
+  ./sunny clientid  bf7467d21ce7759f
+  
+ 4) check mysql config ,and start properly 

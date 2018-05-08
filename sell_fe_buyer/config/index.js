@@ -15,14 +15,14 @@ module.exports = {
 		// npm install --save-dev compression-webpack-plugin
 		productionGzip: false,
 		productionGzipExtensions: ['js', 'css'],
-		port: 8080,
-		sellUrl: 'http://onlyoucd.free.ngrok.cc/sell',
-		openidUrl: 'http://onlyoucd.free.ngrok.cc/sell/wechat/authorize',
-        	wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/sell/pay'
+		port: 8088,
+        	sellUrl: 'http://onlyoucd.free.ngrok.cc/',
+        	openidUrl: 'http://onlyoucd.free.ngrok.cc/wechat/authorize',
+        	wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/pay'
 	},
 	dev: {
 		env: require('./dev.env'),
-		port: 8080,
+		port: 8088,
 		assetsSubDirectory: 'static',
 		assetsPublicPath: '/',
 		proxyTable: {},
@@ -32,8 +32,8 @@ module.exports = {
 		// In our experience, they generally work as expected,
 		// just be aware of this issue when enabling this option.
 		cssSourceMap: false,
-		sellUrl: 'http://onlyoucd.free.ngrok.cc/sell',
-		openidUrl: 'http://onlyoucd.free.ngrok.cc/sell/wechat/authorize',
-		wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/sell/pay'
+		sellUrl: 'http://onlyoucd.free.ngrok.cc',
+		openidUrl: 'http://onlyoucd.free.ngrok.cc',
+		wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/pay'
 	}
 }

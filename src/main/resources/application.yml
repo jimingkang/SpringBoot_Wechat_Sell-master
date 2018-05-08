@@ -13,9 +13,9 @@ spring:
     port: 6379
     #password:
 server:
-  context-path: /
+#  context-path: /
   port: 8088
-#  context-path: /sell
+  context-path: /
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"
@@ -34,7 +34,7 @@ wechat:
   mchId: 1483469312
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath:  C:/Users/Hasee/Desktop/SpringBoot_Wechat_Sell/src/main/resources/h5.p12
-  notifyUrl: http://1m929o4661.imwork.net/notify
+  notifyUrl: http://onlyoucd.free.ngrok.cc/notify
   templateId:
     orderStatus: kahmCfZjV-2jORZ4yFti9-69smaV3gQ1lFFCDKL_vjI
     payStatus: kahmCfZjV-2jORZ4yFti9-69smaV3gQ1lFFCDKL_vjI
@@ -42,7 +42,7 @@ wechat:
 projectUrl:
   wechatMpAuthorize: http://onlyoucd.free.ngrok.cc
   wechatOpenAuthorize: http://onlyoucd.free.ngrok.cc
-  sell: http://localhost:8080
+  sell: http://onlyoucd.free.ngrok.cc
 logging:
   level:
     com.ldlood.dataobject.mapper: trace
