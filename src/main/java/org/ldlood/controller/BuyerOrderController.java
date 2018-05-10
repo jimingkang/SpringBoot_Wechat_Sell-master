@@ -31,6 +31,7 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/buyer/order")
 @Slf4j
+@CrossOrigin
 public class BuyerOrderController {
     private Logger log = LoggerFactory.getLogger(getClass());
     @Autowired

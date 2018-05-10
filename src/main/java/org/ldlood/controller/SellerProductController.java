@@ -26,6 +26,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/seller/product")
+@CrossOrigin
 public class SellerProductController {
 
     @Autowired
