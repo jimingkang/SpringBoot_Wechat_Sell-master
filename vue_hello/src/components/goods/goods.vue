@@ -16,9 +16,13 @@
           <li v-for="item in goods" class="food-list" ref="foodList">
             <h1 class="title">{{item.name}}</h1>
             <ul>
-              <li v-for="food in item.foods" class="food-item border-1px">
+              <router-link :to="{name: 'food', params: {id: food.id}}" v-for="food in item.foods" class="food-item border-1px">
+                          <!-- class="item" v-for="item in movieList.subjects"-->
+
+               <!-- <li v-for="food in item.foods" class="food-item border-1px">-->
+                <a>
                 <div class="icon">
-                  <img width="57" height="57" :src="food.icon">
+                  <img width="100" height="100" :src="food.icon">
                 </div>
                 <div class="content">
                   <h2 class="name">{{food.name}}</h2>
@@ -34,7 +38,9 @@
                     <cartcontrol @add="addFood" :food="food"></cartcontrol>
                   </div>
                 </div>
-              </li>
+              <!--</li>-->
+                </a>
+              </router-link>
             </ul>
           </li>
         </ul>
@@ -109,7 +115,7 @@
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
       let selectedGoods = window.selectedGoods;
       selectedGoods = selectedGoods ? JSON.parse(selectedGoods) : [];
-      this.$http.get('http://localhost:8088/buyer/product/list').then((response) => {
+      this.$http.get('http://localhost:8088/buyer/Event/list').then((response) => {
         response = response.body;
         if (response.code === ERR_OK) {
           selectedGoods.map(item => {

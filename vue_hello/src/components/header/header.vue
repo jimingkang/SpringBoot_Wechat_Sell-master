@@ -10,7 +10,8 @@
           <span class="name">{{seller.name}}</span>
         </div>
         <div class="description">
-          {{seller.description}}/{{seller.deliveryTime}}分钟送达
+          “onlyou-上海”是一家专业的兴趣社交平台,我们专为广大业余足球，围棋等爱好者提供场地、赛事、
+          管理、同城约战、队伍招人等流程服务
         </div>
         <div v-if="seller.supports" class="support">
           <span class="icon" :class="classMap[seller.supports[0].type]"></span>

@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.ldlood.converter.OrderMasterToOrderDTOConverter;
 import org.ldlood.dataobject.OrderDetail;
 import org.ldlood.dataobject.OrderMaster;
-import org.ldlood.dataobject.ProductInfo;
+import org.ldlood.dataobject.EventInfo;
 import org.ldlood.dto.CartDTO;
 import org.ldlood.dto.OrderDTO;
 import org.ldlood.enums.OrderStatusEnum;
@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 public class OrderServiceImpl implements OrderService {
     private Logger log = LoggerFactory.getLogger(getClass());
     @Autowired
-    private ProductService productService;
+    private EventService EventService;
 
     @Autowired
     private OrderDetailRepository orderDetailRepository;
@@ -65,20 +65,20 @@ public class OrderServiceImpl implements OrderService {
 
 
         for (OrderDetail orderDetail : orderDTO.getOrderDetailList()) {
-            ProductInfo productInfo = productService.findOne(orderDetail.getProductId());
-            if (productInfo == null) {
-                throw new SellException(ResultEnum.PRODUCT_NOT_EXI);
+            EventInfo eventInfo = EventService.findOne(orderDetail.getEventId());
+            if (eventInfo == null) {
+                throw new SellException(ResultEnum.Event_NOT_EXI);
 //                throw  new ResponseBankException();
             }
             //2. 计算订单总价
-            orderAmount = productInfo.getProductPrice()
-                    .multiply(new BigDecimal(orderDetail.getProductQuantity()))
+            orderAmount = eventInfo.getEventPrice()
+                    .multiply(new BigDecimal(orderDetail.getEventQuantity()))
                     .add(orderAmount);
 
 
             orderDetail.setDetailId(KeyUtil.genUniqueKey());
             orderDetail.setOrderId(orderId);
-            BeanUtils.copyProperties(productInfo, orderDetail);
+            BeanUtils.copyProperties(eventInfo, orderDetail);
             orderDetailRepository.save(orderDetail);
         }
 
@@ -92,9 +92,9 @@ public class OrderServiceImpl implements OrderService {
         orderMasterRepository.save(orderMaster);
 
 
-        List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream().map(e -> new CartDTO(e.getProductId(), e.getProductQuantity())).collect(Collectors.toList());
+        List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream().map(e -> new CartDTO(e.getEventId(), e.getEventQuantity())).collect(Collectors.toList());
 
-        productService.decreaseStock(cartDTOList);
+        EventService.decreaseStock(cartDTOList);
 
         // 发送websocket消息
         webSocket.sendMessage(orderDTO.getOrderId());
@@ -165,10 +165,10 @@ public class OrderServiceImpl implements OrderService {
         }
 
         List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream().map(e ->
-                new CartDTO(e.getProductId(), e.getProductQuantity())
+                new CartDTO(e.getEventId(), e.getEventQuantity())
         ).collect(Collectors.toList());
 
-        productService.increaseStock(cartDTOList);
+        EventService.increaseStock(cartDTOList);
 
         //支付成功退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS)) {

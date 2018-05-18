@@ -8,7 +8,7 @@
           <span class="text">({{seller.ratingCount}})</span>
           <span class="text">月售{{seller.sellCount}}单</span>
         </div>
-        <ul class="remark">
+ <!--       <ul class="remark">
           <li class="block">
             <h2>起送价</h2>
             <div class="content">
@@ -27,7 +27,7 @@
               <span class="stress">{{seller.deliveryTime}}</span>分钟
             </div>
           </li>
-        </ul>
+        </ul>-->
         <div class="favorite" @click="toggleFavorite">
           <span class="icon-favorite" :class="{'active':favorite}"></span>
           <span class="text">{{favoriteText}}</span>
@@ -48,7 +48,7 @@
       </div>
       <split></split>
       <div class="pics">
-        <h1 class="title">商家实景</h1>
+        <h1 class="title">历届图片</h1>
         <div class="pic-wrapper" ref="picWrapper">
           <ul class="pic-list" ref="picList">
             <li class="pic-item" v-for="pic in seller.pics">
@@ -59,7 +59,7 @@
       </div>
       <split></split>
       <div class="info">
-        <h1 class="title border-1px">商家信息</h1>
+        <h1 class="title border-1px">队伍信息</h1>
         <ul>
           <li class="info-item" v-for="info in seller.infos">{{info}}</li>
         </ul>

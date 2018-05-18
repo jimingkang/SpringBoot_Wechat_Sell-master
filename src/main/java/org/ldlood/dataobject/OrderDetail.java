@@ -34,58 +34,58 @@ public class OrderDetail {
         this.orderId = orderId;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getEventId() {
+        return EventId;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setEventId(String EventId) {
+        this.EventId = EventId;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getEventName() {
+        return EventName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setEventName(String EventName) {
+        this.EventName = EventName;
     }
 
-    public BigDecimal getProductPrice() {
-        return productPrice;
+    public BigDecimal getEventPrice() {
+        return EventPrice;
     }
 
-    public void setProductPrice(BigDecimal productPrice) {
-        this.productPrice = productPrice;
+    public void setEventPrice(BigDecimal EventPrice) {
+        this.EventPrice = EventPrice;
     }
 
-    public Integer getProductQuantity() {
-        return productQuantity;
+    public Integer getEventQuantity() {
+        return EventQuantity;
     }
 
-    public void setProductQuantity(Integer productQuantity) {
-        this.productQuantity = productQuantity;
+    public void setEventQuantity(Integer EventQuantity) {
+        this.EventQuantity = EventQuantity;
     }
 
-    public String getProductIcon() {
-        return productIcon;
+    public String getEventIcon() {
+        return EventIcon;
     }
 
-    public void setProductIcon(String productIcon) {
-        this.productIcon = productIcon;
+    public void setEventIcon(String EventIcon) {
+        this.EventIcon = EventIcon;
     }
 
     /** 商品id. */
-    private String productId;
+    private String EventId;
 
     /** 商品名称. */
-    private String productName;
+    private String EventName;
 
     /** 商品单价. */
-    private BigDecimal productPrice;
+    private BigDecimal EventPrice;
 
     /** 商品数量. */
-    private Integer productQuantity;
+    private Integer EventQuantity;
 
     /** 商品小图. */
-    private String productIcon;
+    private String EventIcon;
 }

@@ -31,8 +31,8 @@ public class OrderFormToOrderDTOConverter {
             orderDetailList = gson.fromJson(orderForm.getItems(), new TypeToken<List<OrderDetail>>() {
             }.getType());
         } catch (Exception ex) {
-            log.error("【格式转换错误】restl={}", orderForm.getItems());
-            log.error(ex.getMessage());
+         //   log.error("【格式转换错误】restl={}", orderForm.getItems());
+         //   log.error(ex.getMessage());
             throw new SellException(ResultEnum.PARAM_ERROR);
 
         }

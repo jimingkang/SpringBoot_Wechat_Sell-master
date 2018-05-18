@@ -3,7 +3,7 @@
     <div v-show="showFlag" class="food" ref="food">
       <div class="food-content">
         <div class="image-header">
-          <img :src="food.image">
+          <img :src="food.image">{{food.image}}
           <div class="back" @click="hide">
             <i class="icon-arrow_lift"></i>
           </div>
@@ -68,7 +68,7 @@
   import split from '@/components/split/split';
 
   const ALL = 2;
-
+  const  ERR_OK=0;
   export default {
     props: {
       food: {
@@ -86,6 +86,17 @@
           negative: '吐槽'
         }
       };
+    },
+    mounted(){
+      this.id = this.$route.params.id;
+      console.log(this.id)
+      this.$http.get('http://localhost:8088/buyer/Event/list').then((response) => {
+        response = response.body;
+        if (response.errno === ERR_OK) {
+          console.log(response.data)
+          this.food = Object.assign({}, this.food, response.data.food[0]);
+        }
+      });
     },
     methods: {
       show() {

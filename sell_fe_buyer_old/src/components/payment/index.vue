@@ -49,7 +49,7 @@
 		methods: {
 			pay() {
 				const goods = this.selectedGoods.map(good => {
-                    return {productId: good.id, productQuantity: good.count}
+                    return {EventId: good.id, EventQuantity: good.count}
                 });
                 const ERR_OK = 0;
                 this.$http.post("/sell/buyer/order/create", {

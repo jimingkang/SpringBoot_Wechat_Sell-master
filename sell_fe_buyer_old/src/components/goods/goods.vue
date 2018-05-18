@@ -108,7 +108,7 @@
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
       let selectedGoods = window.selectedGoods;
       selectedGoods = selectedGoods ? JSON.parse(selectedGoods) : [];
-      this.$http.get('/sell/buyer/product/list').then((response) => {
+      this.$http.get('/sell/buyer/Event/list').then((response) => {
         response = response.body;
         if (response.code === ERR_OK) {
           selectedGoods.map(item => {

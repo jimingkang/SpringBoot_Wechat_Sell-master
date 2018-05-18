@@ -20,7 +20,7 @@
 ## Sql语句
 ``` sql
 -- 类目
-create table `product_category` (
+create table `Event_category` (
     `category_id` int not null auto_increment,
     `category_name` varchar(64) not null comment '类目名字',
     `category_type` int not null comment '类目编号',
@@ -31,18 +31,18 @@ create table `product_category` (
 );
 
 -- 商品
-create table `product_info` (
-    `product_id` varchar(32) not null,
-    `product_name` varchar(64) not null comment '商品名称',
-    `product_price` decimal(8,2) not null comment '单价',
-    `product_stock` int not null comment '库存',
-    `product_description` varchar(64) comment '描述',
-    `product_icon` varchar(512) comment '小图',
-    `product_status` tinyint(3) DEFAULT '0' COMMENT '商品状态,0正常1下架',
+create table `Event_info` (
+    `Event_id` varchar(32) not null,
+    `Event_name` varchar(64) not null comment '商品名称',
+    `Event_price` decimal(8,2) not null comment '单价',
+    `Event_stock` int not null comment '库存',
+    `Event_description` varchar(64) comment '描述',
+    `Event_icon` varchar(512) comment '小图',
+    `Event_status` tinyint(3) DEFAULT '0' COMMENT '商品状态,0正常1下架',
     `category_type` int not null comment '类目编号',
     `create_time` timestamp not null default current_timestamp comment '创建时间',
     `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
-    primary key (`product_id`)
+    primary key (`Event_id`)
 );
 
 -- 订单
@@ -65,11 +65,11 @@ create table `order_master` (
 create table `order_detail` (
     `detail_id` varchar(32) not null,
     `order_id` varchar(32) not null,
-    `product_id` varchar(32) not null,
-    `product_name` varchar(64) not null comment '商品名称',
-    `product_price` decimal(8,2) not null comment '当前价格,单位分',
-    `product_quantity` int not null comment '数量',
-    `product_icon` varchar(512) comment '小图',
+    `Event_id` varchar(32) not null,
+    `Event_name` varchar(64) not null comment '商品名称',
+    `Event_price` decimal(8,2) not null comment '当前价格,单位分',
+    `Event_quantity` int not null comment '数量',
+    `Event_icon` varchar(512) comment '小图',
     `create_time` timestamp not null default current_timestamp comment '创建时间',
     `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
     primary key (`detail_id`),

@@ -22,15 +22,15 @@
                     </div>
                     <!--<img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAMAAABf788oAAAAbFBMVEUAAAAzMzMzMzM2NjYzMzM1NTU0NDRAQEAzMzM0NDRAQEAzMzM0NDQzMzM0NDQ0NDQ0NDQzMzMzMzMzMzM0NDQ1NTU2NjY5OTk0NDQ0NDQzMzM0NDQzMzM0NDQ1NTU0NDQzMzM0NDQ3NzczMzMku2ijAAAAI3RSTlMA+/Yi4Do2CnhIBO/o176uopeGb2VALhsT8c/LtI2DXVVTM3zB6zwAAACGSURBVBjTfdBJEsIwDETRJHZMRkgIGZiHf/874mVbRaFdv42kzn6MCybnjAkE4JjIAFQKzQE4qez2wCuRK+S1ytZDUaqsHtpFxXXQOZWlBb+qlEWUTaXO4ZIs78Gb83R1c4PzRx8ypw0xz5JH88w95rfkB/CUXJmCJmDSP22lwZaezSH7N19vZgteSBxyaAAAAABJRU5ErkJggg==" class="icon-arrowright" />-->
                 </div>
-                <div  class="product-list listitem">
+                <div  class="Event-list listitem">
                     <ul  class="cart-item" v-for="orderDetail in orderDetailList">
-                        <li  class="product-item">
+                        <li  class="Event-item">
                             <div  class="profile">
-                                <p  class="name">{{orderDetail.productName}}</p>
+                                <p  class="name">{{orderDetail.EventName}}</p>
                             </div>
                             <div  class="price-wrap">
-                                <span  class="quantity">x{{orderDetail.productQuantity}}</span>
-                                <span >&yen;{{orderDetail.productPrice * orderDetail.productQuantity}}</span>
+                                <span  class="quantity">x{{orderDetail.EventQuantity}}</span>
+                                <span >&yen;{{orderDetail.EventPrice * orderDetail.EventQuantity}}</span>
                             </div>
                         </li>
                     </ul>
@@ -171,15 +171,15 @@
     background-color: #f5f5f5;
     .statuscircle {
       margin-bottom: 10px;
-      text-align: center; 
+      text-align: center;
       img {
         width: 80px;
         height: 80px;
         border-radius: 50%;
-      }     
+      }
 
     }
-    
+
     .statushead {
       position: relative;
       padding-top: 20px;
@@ -235,5 +235,5 @@
       background-color: #fff;
     }
   }
-  
+
 </style>

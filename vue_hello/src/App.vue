@@ -11,7 +11,7 @@
       <v-header :seller="seller"></v-header>
       <div class="tab border-1px">
         <div class="tab-item">
-          <router-link to="/goods">商品</router-link>
+          <router-link to="/goods">活跃战队</router-link>
         </div>
       <!--  <div class="tab-item">
           <router-link to="/ratings">评论</router-link>
@@ -61,7 +61,7 @@
         this.changeHash();
       });
       if (this.showHeader) {
-        this.$http.get('http://localhost:8088/api/seller.json').then((response) => {
+        this.$http.get('/api/seller.json').then((response) => {
           response = response.body;
           if (response.errno === ERR_OK) {
             this.seller = Object.assign({}, this.seller, response.data);

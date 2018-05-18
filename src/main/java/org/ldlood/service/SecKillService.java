@@ -8,16 +8,16 @@ public interface SecKillService {
     /**
      * 查询秒杀活动特价商品的信息
      *
-     * @param productId
+     * @param EventId
      * @return
      */
-    String querySecKillProductInfo(String productId);
+    String querySecKillEventInfo(String EventId);
 
     /**
      * 模拟不同用户秒杀同一商品的请求
      *
-     * @param productId
+     * @param EventId
      * @return
      */
-    void orderProductMockDiffUser(String productId);
+    void orderEventMockDiffUser(String EventId);
 }

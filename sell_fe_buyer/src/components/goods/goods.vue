@@ -99,8 +99,7 @@
         if(typeof openid !== 'undefined') {
 	    var exp = new Date();
             exp.setTime(exp.getTime() + 3600 * 1000);//过期时间60分钟
-           // document.cookie = 'openid=' + openid + ";expires=" + exp.toGMTString();
-          document.cookie = 'openid=' + "oGKSD07MXhhRAS4zhtnvqt9Vhsrs" + ";expires=" + exp.toGMTString();
+            document.cookie = 'openid=' + openid + ";expires=" + exp.toGMTString();
         }
         //获取openid
         if(getCookie('openid') == null) {

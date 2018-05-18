@@ -40,11 +40,11 @@
                         <tbody>
                         <#list orderDTO.orderDetailList as orderDetail>
                         <tr>
-                            <td>${orderDetail.productId}</td>
-                            <td>${orderDetail.productName}</td>
-                            <td>${orderDetail.productPrice}</td>
-                            <td>${orderDetail.productQuantity}</td>
-                            <td>${orderDetail.productQuantity * orderDetail.productPrice}</td>
+                            <td>${orderDetail.EventId}</td>
+                            <td>${orderDetail.EventName}</td>
+                            <td>${orderDetail.EventPrice}</td>
+                            <td>${orderDetail.EventQuantity}</td>
+                            <td>${orderDetail.EventQuantity * orderDetail.EventPrice}</td>
                         </tr>
                         </#list>
                         </tbody>

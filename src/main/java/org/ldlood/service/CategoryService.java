@@ -1,6 +1,6 @@
 package org.ldlood.service;
 
-import org.ldlood.dataobject.ProductCategory;
+import org.ldlood.dataobject.EventCategory;
 
 import java.util.List;
 
@@ -8,12 +8,12 @@ import java.util.List;
  * Created by Ldlood on 2017/7/20.
  */
 public interface CategoryService {
-    ProductCategory findOne(Integer categoryId);
+    EventCategory findOne(Integer categoryId);
 
-    List<ProductCategory> findAll();
+    List<EventCategory> findAll();
 
-    List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
+    List<EventCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
 
-    ProductCategory save(ProductCategory productCategory);
+    EventCategory save(EventCategory EventCategory);
 
 }

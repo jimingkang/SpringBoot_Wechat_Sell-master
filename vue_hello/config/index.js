@@ -49,16 +49,16 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
-    // https://webpack.js.org/configuration/devtool/#production
+    EventionSourceMap: true,
+    // https://webpack.js.org/configuration/devtool/#Evention
     devtool: '#source-map',
 
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
-    productionGzipExtensions: ['js', 'css'],
+    EventionGzip: false,
+    EventionGzipExtensions: ['js', 'css'],
 
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:

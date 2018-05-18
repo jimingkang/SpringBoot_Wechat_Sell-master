@@ -29,11 +29,11 @@ public class OrderDetailRepositoryTest {
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setDetailId("1234567810");
         orderDetail.setOrderId("1234567");
-        orderDetail.setProductIcon("http://xxxx.jpg");
-        orderDetail.setProductId("11111112");
-        orderDetail.setProductName("food");
-        orderDetail.setProductPrice(new BigDecimal(2.2));
-        orderDetail.setProductQuantity(3);
+        orderDetail.setEventIcon("http://xxxx.jpg");
+        orderDetail.setEventId("11111112");
+        orderDetail.setEventName("food");
+        orderDetail.setEventPrice(new BigDecimal(2.2));
+        orderDetail.setEventQuantity(3);
 
         OrderDetail result = repository.save(orderDetail);
         Assert.assertNotNull(result);

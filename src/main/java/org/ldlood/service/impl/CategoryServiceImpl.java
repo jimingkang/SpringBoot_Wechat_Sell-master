@@ -1,7 +1,7 @@
 package org.ldlood.service.impl;
 
-import org.ldlood.dataobject.ProductCategory;
-import org.ldlood.repository.ProductCategoryRepository;
+import org.ldlood.dataobject.EventCategory;
+import org.ldlood.repository.EventCategoryRepository;
 import org.ldlood.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,25 +15,25 @@ import java.util.List;
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
-    private ProductCategoryRepository productCategoryRepository;
+    private EventCategoryRepository EventCategoryRepository;
 
     @Override
-    public ProductCategory findOne(Integer categoryId) {
-        return productCategoryRepository.findOne(categoryId);
+    public EventCategory findOne(Integer categoryId) {
+        return EventCategoryRepository.findOne(categoryId);
     }
 
     @Override
-    public List<ProductCategory> findAll() {
-        return productCategoryRepository.findAll();
+    public List<EventCategory> findAll() {
+        return EventCategoryRepository.findAll();
     }
 
     @Override
-    public List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList) {
-       return productCategoryRepository.findByCategoryTypeIn(categoryTypeList);
+    public List<EventCategory> findByCategoryTypeIn(List<Integer> categoryTypeList) {
+       return EventCategoryRepository.findByCategoryTypeIn(categoryTypeList);
     }
 
     @Override
-    public ProductCategory save(ProductCategory productCategory) {
-        return  productCategoryRepository.save(productCategory);
+    public EventCategory save(EventCategory EventCategory) {
+        return  EventCategoryRepository.save(EventCategory);
     }
 }

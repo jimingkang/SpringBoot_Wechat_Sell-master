@@ -22,7 +22,7 @@
                 </div>
                 <div  class="ordercard-detail">
                     <p  class="detail">
-                        <!--<span  class="productname">豆乳盒子</span>-->
+                        <!--<span  class="Eventname">豆乳盒子</span>-->
                         <!--<span ></span>-->
                     </p>
                     <p  class="price">¥{{item.orderAmount}}</p>
@@ -149,7 +149,7 @@
             color: #333;
             font-weight: 700;
           }
-          
+
         }
         .title {
 

@@ -15,10 +15,10 @@ module.exports = {
 		// npm install --save-dev compression-webpack-plugin
 		productionGzip: false,
 		productionGzipExtensions: ['js', 'css'],
-		port: 8088,
-        	sellUrl: 'http://onlyoucd.free.ngrok.cc/',
-        	openidUrl: 'http://onlyoucd.free.ngrok.cc/wechat/authorize',
-        	wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/pay'
+		port: 9000,
+        	sellUrl: 'http://www.cnblog.xin',
+        	openidUrl: 'http://www.cnblog.xin:8080/wechat/authorize',
+        	wechatPayUrl: 'http://www.cnblog.xin/pay'
 	},
 	dev: {
 		env: require('./dev.env'),
@@ -32,8 +32,8 @@ module.exports = {
 		// In our experience, they generally work as expected,
 		// just be aware of this issue when enabling this option.
 		cssSourceMap: false,
-		sellUrl: 'http://onlyoucd.free.ngrok.cc',
-		openidUrl: 'http://onlyoucd.free.ngrok.cc',
-		wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/pay'
+		sellUrl: 'http://127.0.0.1',
+		openidUrl: 'http://127.0.0.1',
+		wechatPayUrl: 'http://127.0.0.1'
 	}
 }

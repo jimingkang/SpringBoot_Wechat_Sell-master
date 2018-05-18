@@ -1,20 +1,18 @@
 package org.ldlood.service.impl;
 
+import com.lly835.bestpay.enums.BestPayTypeEnum;
+import com.lly835.bestpay.model.PayRequest;
+import com.lly835.bestpay.model.PayResponse;
+import com.lly835.bestpay.model.RefundRequest;
+import com.lly835.bestpay.model.RefundResponse;
+import com.lly835.bestpay.service.impl.BestPayServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.ldlood.dto.OrderDTO;
 import org.ldlood.enums.ResultEnum;
 import org.ldlood.exception.SellException;
 import org.ldlood.service.OrderService;
 import org.ldlood.service.PayService;
-import org.ldlood.utils.JsonUtil;
 import org.ldlood.utils.MathUtil;
-import com.lly835.bestpay.enums.BestPayTypeEnum;
-import com.lly835.bestpay.model.PayRequest;
-import com.lly835.bestpay.model.PayResponse;
-
-import com.lly835.bestpay.model.RefundRequest;
-import com.lly835.bestpay.model.RefundResponse;
-import com.lly835.bestpay.service.impl.BestPayServiceImpl;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,9 +41,9 @@ public class PayServiceImpl implements PayService {
         payRequest.setOrderId(orderDTO.getOrderId());
         payRequest.setOrderName(ORDER_NAME);
         payRequest.setPayTypeEnum(BestPayTypeEnum.WXPAY_H5);
-        log.info("【微信支付】 request={}", JsonUtil.toJson(payRequest));
+        //log.info("【微信支付】 request={}", JsonUtil.toJson(payRequest));
         PayResponse payResponse = bestPayService.pay(payRequest);
-        log.info("【微信支付】 response={}", JsonUtil.toJson(payResponse));
+        //log.info("【微信支付】 response={}", JsonUtil.toJson(payResponse));
 
         return payResponse;
     }
@@ -54,17 +52,17 @@ public class PayServiceImpl implements PayService {
 
 
         PayResponse payResponse = bestPayService.asyncNotify(notifyData);
-        log.info("微信支付 异步回:" + payResponse);
+        //log.info("微信支付 异步回:" + payResponse);
         OrderDTO orderDTO = orderService.findOne(payResponse.getOrderId());
         if (orderDTO == null) {
-            log.error("【微信支付】 异步通知错误,订单不存在，orerid={}", payResponse.getOrderId());
+            //log.error("【微信支付】 异步通知错误,订单不存在，orerid={}", payResponse.getOrderId());
             throw new SellException(ResultEnum.ORDER_NOT_EX);
         }
         if (!MathUtil.equals(payResponse.getOrderAmount(), orderDTO.getOrderAmount().doubleValue())) {
-            log.error("【微信支付】 异步通知错误,订单金额不一致，orerid={},微信通知金额={},订单金额={}",
-                    payResponse.getOrderId(),
-                    payResponse.getOrderAmount(),
-                    orderDTO.getOrderAmount());
+          //  log.error("【微信支付】 异步通知错误,订单金额不一致，orerid={},微信通知金额={},订单金额={}",
+              //      payResponse.getOrderId(),
+            //        payResponse.getOrderAmount(),
+             //       orderDTO.getOrderAmount());
             throw new SellException(ResultEnum.WXPAY_NOTIFY_MONEY_VERIFY_ERROR);
         }
         orderService.paid(orderDTO);
@@ -79,9 +77,9 @@ public class PayServiceImpl implements PayService {
         refundRequest.setOrderAmount(orderDTO.getOrderAmount().doubleValue());
         refundRequest.setPayTypeEnum(BestPayTypeEnum.WXPAY_H5);
 
-        log.info("【微信退款】 request:{}", refundRequest);
+        //log.info("【微信退款】 request:{}", refundRequest);
         RefundResponse refundResponse = bestPayService.refund(refundRequest);
-        log.info("【微信退款】 response:{}", refundResponse);
+        //log.info("【微信退款】 response:{}", refundResponse);
         return refundResponse;
     }
 }

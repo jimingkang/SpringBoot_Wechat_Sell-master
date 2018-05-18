@@ -23,27 +23,27 @@ public class SecKillController {
 
     /**
      * 查询秒杀活动特价商品的信息
-     * @param productId
+     * @param EventId
      * @return
      */
-    @GetMapping("/query/{productId}")
-    public String query(@PathVariable String productId)throws Exception
+    @GetMapping("/query/{EventId}")
+    public String query(@PathVariable String EventId)throws Exception
     {
-        return secKillService.querySecKillProductInfo(productId);
+        return secKillService.querySecKillEventInfo(EventId);
     }
 
 
     /**
      * 秒杀，没有抢到获得"哎呦喂,xxxxx",抢到了会返回剩余的库存量
-     * @param productId
+     * @param EventId
      * @return
      * @throws Exception
      */
-    @GetMapping("/order/{productId}")
-    public String skill(@PathVariable String productId)throws Exception
+    @GetMapping("/order/{EventId}")
+    public String skill(@PathVariable String EventId)throws Exception
     {
-        log.info("@skill request, productId:" + productId);
-        secKillService.orderProductMockDiffUser(productId);
-        return secKillService.querySecKillProductInfo(productId);
+        log.info("@skill request, EventId:" + EventId);
+        secKillService.orderEventMockDiffUser(EventId);
+        return secKillService.querySecKillEventInfo(EventId);
     }
 }

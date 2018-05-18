@@ -1,6 +1,6 @@
 package org.ldlood.controller;
 
-import org.ldlood.dataobject.ProductCategory;
+import org.ldlood.dataobject.EventCategory;
 import org.ldlood.exception.SellException;
 import org.ldlood.form.CategoryForm;
 import org.ldlood.service.CategoryService;
@@ -35,7 +35,7 @@ public class SellerCategoryController {
      */
     @GetMapping("/list")
     public ModelAndView list(Map<String, Object> map) {
-        List<ProductCategory> categoryList = categoryService.findAll();
+        List<EventCategory> categoryList = categoryService.findAll();
         map.put("categoryList", categoryList);
         return new ModelAndView("category/list", map);
     }
@@ -45,8 +45,8 @@ public class SellerCategoryController {
                               Map<String, Object> map) {
 
         if (categoryId != null) {
-            ProductCategory productCategory = categoryService.findOne(categoryId);
-            map.put("productCategory", productCategory);
+            EventCategory EventCategory = categoryService.findOne(categoryId);
+            map.put("EventCategory", EventCategory);
         }
 
         return new ModelAndView("category/index", map);
@@ -62,13 +62,13 @@ public class SellerCategoryController {
             return new ModelAndView("common/error", map);
         }
 
-        ProductCategory productCategory = new ProductCategory();
+        EventCategory EventCategory = new EventCategory();
         try {
             if (form.getCategoryId() != null) {
-                productCategory = categoryService.findOne(form.getCategoryId());
+                EventCategory = categoryService.findOne(form.getCategoryId());
             }
-            BeanUtils.copyProperties(form, productCategory);
-            categoryService.save(productCategory);
+            BeanUtils.copyProperties(form, EventCategory);
+            categoryService.save(EventCategory);
         } catch (SellException e) {
             map.put("msg", e.getMessage());
             map.put("url", "/seller/category/index");

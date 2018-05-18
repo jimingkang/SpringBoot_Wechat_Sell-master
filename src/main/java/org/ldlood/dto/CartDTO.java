@@ -10,15 +10,31 @@ public class CartDTO {
     /**
      * 商品Id.
      */
-    private String productId;
+    private String eventId;
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        eventId = eventId;
+    }
+
+    public Integer getEventQuantity() {
+        return eventQuantity;
+    }
+
+    public void setEventQuantity(Integer eventQuantity) {
+        this.eventQuantity = eventQuantity;
+    }
 
     /**
      * 数量.
      */
-    private Integer productQuantity;
+    private Integer eventQuantity;
 
-    public CartDTO(String productId, Integer productQuantity) {
-        this.productId = productId;
-        this.productQuantity = productQuantity;
+    public CartDTO(String eventId, Integer eventQuantity) {
+        this.eventId = eventId;
+        this.eventQuantity = eventQuantity;
     }
 }

@@ -1,6 +1,6 @@
 package org.ldlood.service.impl;
 
-import org.ldlood.dataobject.ProductCategory;
+import org.ldlood.dataobject.EventCategory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,29 +23,29 @@ public class CategoryServiceImplTest {
 
     @Test
     public void findOne() throws Exception {
-        ProductCategory productCategory = categoryService.findOne(1);
-        Assert.assertNotNull(productCategory);
+        EventCategory EventCategory = categoryService.findOne(1);
+        Assert.assertNotNull(EventCategory);
 
     }
 
     @Test
     public void findAll() throws Exception {
 
-        List<ProductCategory> productCategoryList = categoryService.findAll();
-        Assert.assertNotEquals(0, productCategoryList.size());
+        List<EventCategory> EventCategoryList = categoryService.findAll();
+        Assert.assertNotEquals(0, EventCategoryList.size());
     }
 
     @Test
     public void findByCategoryTypeIn() throws Exception {
         List<Integer> lists = Arrays.asList(1, 2, 2);
-        List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(lists);
-        Assert.assertNotEquals(0, productCategoryList.size());
+        List<EventCategory> EventCategoryList = categoryService.findByCategoryTypeIn(lists);
+        Assert.assertNotEquals(0, EventCategoryList.size());
     }
 
     @Test
     public void save() throws Exception {
-        ProductCategory productCategory = new ProductCategory("summer-hot", 12);
-        Assert.assertNotNull(categoryService.save(productCategory));
+        EventCategory EventCategory = new EventCategory("summer-hot", 12);
+        Assert.assertNotNull(categoryService.save(EventCategory));
     }
 
 }
